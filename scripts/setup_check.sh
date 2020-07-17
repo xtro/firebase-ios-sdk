@@ -27,6 +27,7 @@ brew install swiftformat
 clang-format -version
 swiftformat -version
 
+pip --version
 pip install flake8
 pip install six
 
