@@ -40,10 +40,6 @@ let package = Package(
       targets: ["FirebaseAuth"]
     ),
     .library(
-      name: "FirebaseAppDistribution",
-      targets: ["FirebaseAppDistribution"]
-    ),
-    .library(
       name: "FirebaseCrashlytics",
       targets: ["FirebaseCrashlytics"]
     ),
@@ -93,7 +89,6 @@ let package = Package(
       dependencies: [
         "FirebaseAuth",
         "FirebaseABTesting",
-        "FirebaseAppDistribution",
         "FirebaseFunctions",
         "Firebase",
         "FirebaseCrashlytics",
@@ -286,29 +281,6 @@ let package = Package(
       name: "ABTestingUnit",
       dependencies: ["FirebaseABTesting", "OCMock"],
       path: "FirebaseABTesting/Tests/Unit",
-      resources: [.process("Resources")],
-      cSettings: [
-        .headerSearchPath("../../.."),
-      ]
-    ),
-    .target(
-      name: "FirebaseAppDistribution",
-      dependencies: ["FirebaseCore",
-                     "FirebaseInstallations",
-                     "GoogleUtilities_UserDefaults",
-                     "GoogleUtilities_AppDelegateSwizzler",
-                     "GoogleDataTransport"],
-      path: "FirebaseAppDistribution/Sources",
-      publicHeadersPath: "Public",
-      cSettings: [
-        .headerSearchPath("../../"),
-        .define("FIRAppDistribution_VERSION", to: "0.0.1"), // TODO: Fix version
-      ]
-    ),
-    .testTarget(
-      name: "AppDistributionUnit",
-      dependencies: ["FirebaseAppDistribution", "OCMock"],
-      path: "FirebaseAppDistribution/Tests/Unit",
       resources: [.process("Resources")],
       cSettings: [
         .headerSearchPath("../../.."),
